@@ -1,9 +1,3 @@
-"""
-Copyright (c) 2020-2021 WistLab.Co.Ltd
-This file is a part of soft compression algorithm for gray image
-ShapeFinding.py - Find the frequency set
-"""
-
 import cv2
 import os
 import datetime

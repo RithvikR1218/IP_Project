@@ -1,9 +1,3 @@
-"""
-Copyright (c) 2020-2021 WistLab.Co.Ltd
-This file is a part of soft compression algorithm for gray image
-CodeProcessing.py - Generate the codebook according to the frequency
-"""
-
 import os
 import numpy as np
 import ast
@@ -92,11 +86,21 @@ if __name__ == '__main__':
     input_dir = 'frequency'
     output_dir = 'codebook'
     PreProcess.dir_check(output_dir, empty_flag=True)
+    print("Problem Area")
     for frequency in os.listdir(input_dir):
         frequency_name = os.path.join(input_dir, frequency)
+        print("Frequency:" + frequency_name)
         with open(frequency_name, 'r') as f:
             codebook = f.read()
-            codebook = ast.literal_eval(codebook)
+            print("Read has occured")
+            # print(codebook)
+            # converted_data = {tuple(map(int, k[0])): int(v) for k, v in codebook.items()}
+            modified_data_str = codebook.replace('np.int64', '')
+            modified_data_str = modified_data_str.replace('np.int16', '')
+            codebook = ast.literal_eval(modified_data_str)
+            print("Converted")
+            # print(converted_data)
+            # codebook = ast.literal_eval(converted_data)
         print('reading %s,' % frequency_name, 'the number of codewords is %d' % len(codebook))
 
         frequency_class = frequency[0:frequency.rfind('_')]

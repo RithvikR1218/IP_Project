@@ -1,9 +1,3 @@
-"""
-Copyright (c) 2020-2021 WistLab.Co.Ltd
-This file is a part of soft compression algorithm for gray image
-Encode.py - Encode images by using algorithm
-"""
-
 import cv2
 import os
 import PreProcess
